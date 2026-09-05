@@ -1,0 +1,6 @@
+{
+  "name": "Mobile Keymapper",
+  "description": "Android Gaming HUD Keymapper overlay engine with touch injection, customizable floating triggers, target reticles, and system overlay service.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

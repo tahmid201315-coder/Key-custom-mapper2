@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ========================================================================= -->
+<!-- FLOATING TRIGGER BUTTON (floating_trigger.xml)                            -->
+<!-- Inflated via WindowManager or Service in Sketchware Pro                   -->
+<!-- Semi-transparent gaming HUD button that players tap during gameplay       -->
+<!-- ========================================================================= -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_floating_trigger"
+    android:layout_width="56dp"
+    android:layout_height="56dp"
+    android:padding="2dp">
+
+    <!-- FLOATING HUD BUTTON BODY -->
+    <RelativeLayout
+        android:id="@+id/btn_trigger_surface"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/selector_floating_trigger"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center">
+
+        <!-- TRIGGER LETTER LABEL (e.g., "A", "B", "X", "Y", "R1") -->
+        <TextView
+            android:id="@+id/tv_trigger_key"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:includeFontPadding="false"
+            android:shadowColor="#00F0FF"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="8"
+            android:text="A"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <!-- OPTIONAL SUB-LABEL (e.g., "JUMP", "FIRE", "SKILL") -->
+        <TextView
+            android:id="@+id/tv_trigger_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_trigger_key"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-2dp"
+            android:includeFontPadding="false"
+            android:letterSpacing="0.08"
+            android:text="JUMP"
+            android:textColor="@color/neon_cyan"
+            android:textSize="8sp"
+            android:textStyle="bold" />
+
+        <!-- SUBTLE TOP GLOW HIGHLIGHT ARC -->
+        <View
+            android:id="@+id/view_trigger_glow"
+            android:layout_width="20dp"
+            android:layout_height="4dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/bg_target_coord_badge"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+</FrameLayout>

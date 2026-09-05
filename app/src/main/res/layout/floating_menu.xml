@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ========================================================================= -->
+<!-- OVERLAY CONTROL PANEL (floating_menu.xml)                                 -->
+<!-- Floating quick-action pill toolbar attached to the HUD overlay             -->
+<!-- Provides Lock/Unlock toggle, Save Profile, Add Key, and Close overlay     -->
+<!-- ========================================================================= -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_floating_menu"
+    android:layout_width="wrap_content"
+    android:layout_height="48dp"
+    android:background="@drawable/bg_floating_menu"
+    android:elevation="8dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
+
+    <!-- DRAG HANDLE GRIP (Used by WindowManager onTouchListener to move bar) -->
+    <ImageView
+        android:id="@+id/img_menu_drag_handle"
+        android:layout_width="20dp"
+        android:layout_height="28dp"
+        android:contentDescription="Drag Handle"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_drag_handle" />
+
+    <!-- VERTICAL SEPARATOR -->
+    <View
+        android:layout_width="1dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
+        android:background="@color/border_subtle" />
+
+    <!-- ACTION 1: ADD NEW TRIGGER & TARGET PAIR -->
+    <ImageButton
+        android:id="@+id/btn_menu_add"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:background="@drawable/bg_menu_item"
+        android:contentDescription="Add New Button Mapping"
+        android:padding="8dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_add" />
+
+    <!-- ACTION 2: LOCK / UNLOCK HUD POSITIONS -->
+    <ImageButton
+        android:id="@+id/btn_menu_lock"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="4dp"
+        android:background="@drawable/bg_menu_item"
+        android:contentDescription="Lock or Unlock Positions"
+        android:padding="8dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_lock" />
+
+    <!-- ACTION 3: SAVE CURRENT GAME PROFILE -->
+    <ImageButton
+        android:id="@+id/btn_menu_save"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="4dp"
+        android:background="@drawable/bg_menu_item"
+        android:contentDescription="Save Keymap Profile"
+        android:padding="8dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_save" />
+
+    <!-- VERTICAL SEPARATOR -->
+    <View
+        android:layout_width="1dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
+        android:background="@color/border_subtle" />
+
+    <!-- ACTION 4: CLOSE / EXIT OVERLAY -->
+    <ImageButton
+        android:id="@+id/btn_menu_close"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:background="@drawable/bg_menu_item"
+        android:contentDescription="Close Overlay"
+        android:padding="8dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_close" />
+
+</LinearLayout>

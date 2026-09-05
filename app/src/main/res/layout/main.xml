@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ========================================================================= -->
+<!-- KEYMAPPER MAIN ACTIVITY DASHBOARD (main.xml)                              -->
+<!-- Compatible with Sketchware Pro (View Manager -> main.xml)                 -->
+<!-- Designed for Mobile Keymapper by Android UI/UX Designer                   -->
+<!-- ========================================================================= -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroll_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_dark_dashboard"
+    android:fillViewport="true"
+    android:overScrollMode="never"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:id="@+id/layout_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingTop="36dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="40dp">
+
+        <!-- ================================================================= -->
+        <!-- HEADER APP TITLE BAR                                              -->
+        <!-- ================================================================= -->
+        <LinearLayout
+            android:id="@+id/layout_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/img_app_logo"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:contentDescription="Keymapper Logo"
+                android:src="@drawable/ic_target_crosshair" />
+
+            <LinearLayout
+                android:id="@+id/layout_title_group"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_app_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="KEYMAPPER PRO"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_app_subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="HUD Gaming Overlay Engine"
+                    android:textColor="@color/neon_cyan"
+                    android:textSize="12sp"
+                    android:textStyle="normal" />
+            </LinearLayout>
+
+            <!-- LIVE STATUS BADGE -->
+            <TextView
+                android:id="@+id/tv_system_ready_badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_status_badge_active"
+                android:text="V2.4 HUD"
+                android:textColor="@color/neon_green"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- SUBTLE DIVIDER -->
+        <View
+            android:id="@+id/view_divider_header"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/border_subtle" />
+
+        <!-- ================================================================= -->
+        <!-- SYSTEM STATUS CARDS (OVERLAY & ACCESSIBILITY SERVICE)             -->
+        <!-- ================================================================= -->
+        <TextView
+            android:id="@+id/tv_label_system_services"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:letterSpacing="0.05"
+            android:text="CORE SERVICE DIAGNOSTICS"
+            android:textColor="@color/text_secondary"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <!-- CARD 1: OVERLAY PERMISSION STATUS -->
+        <LinearLayout
+            android:id="@+id/card_overlay_permission"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_status_card"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/icon_overlay_shield"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:contentDescription="Overlay Permission"
+                    android:src="@drawable/ic_shield_check" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_title_overlay_perm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Overlay Permission"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_desc_overlay_perm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Draw floating buttons on top of games"
+                        android:textColor="@color/text_muted"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/badge_overlay_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_status_badge_active"
+                    android:text="ACTIVE"
+                    android:textColor="@color/neon_green"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_grant_overlay"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/bg_btn_secondary"
+                android:stateListAnimator="@null"
+                android:text="Grant Overlay Permission"
+                android:textAllCaps="false"
+                android:textColor="@color/neon_cyan"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- CARD 2: TOUCH SERVICE (ACCESSIBILITY) STATUS -->
+        <LinearLayout
+            android:id="@+id/card_touch_service"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/bg_status_card"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/icon_touch_service"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:contentDescription="Touch Service Status"
+                    android:src="@drawable/ic_touch_accessibility" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_title_touch_service"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Touch Injection Service"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_desc_touch_service"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Simulates screen tap events via Accessibility"
+                        android:textColor="@color/text_muted"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/badge_touch_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_status_badge_inactive"
+                    android:text="INACTIVE"
+                    android:textColor="@color/neon_red"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_enable_accessibility"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/bg_btn_secondary"
+                android:stateListAnimator="@null"
+                android:text="Enable Accessibility Service"
+                android:textAllCaps="false"
+                android:textColor="@color/neon_cyan"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- ================================================================= -->
+        <!-- PROMINENT OVERLAY TOGGLE BUTTON (HERO ACTION)                     -->
+        <!-- ================================================================= -->
+        <Button
+            android:id="@+id/btn_toggle_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/bg_btn_accent_toggle"
+            android:elevation="6dp"
+            android:letterSpacing="0.04"
+            android:stateListAnimator="@null"
+            android:text="⚡ START KEYMAPPER OVERLAY"
+            android:textAllCaps="true"
+            android:textColor="#050B14"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <!-- ================================================================= -->
+        <!-- HUD CONTROLS: BUTTON SIZE & OPACITY SLIDERS                       -->
+        <!-- ================================================================= -->
+        <LinearLayout
+            android:id="@+id/card_hud_preferences"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_status_card"
+            android:orientation="vertical"
+            android:padding="18dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/icon_tune"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:contentDescription="HUD Appearance"
+                    android:src="@drawable/ic_tune" />
+
+                <TextView
+                    android:id="@+id/tv_title_hud_appearance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="HUD Appearance &amp; Layout"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="16dp"
+                android:background="@color/border_subtle" />
+
+            <!-- SLIDER 1: BUTTON SIZE -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_label_button_size"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Default Trigger Size"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tv_value_button_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="54 dp"
+                    android:textColor="@color/neon_cyan"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <SeekBar
+                android:id="@+id/slider_button_size"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="18dp"
+                android:max="100"
+                android:progress="54"
+                android:progressDrawable="@drawable/bg_slider_track"
+                android:thumb="@drawable/bg_slider_thumb" />
+
+            <!-- SLIDER 2: HUD OPACITY -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_label_opacity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Overlay Button Opacity"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tv_value_opacity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="75%"
+                    android:textColor="@color/neon_cyan"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <SeekBar
+                android:id="@+id/slider_opacity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:max="100"
+                android:progress="75"
+                android:progressDrawable="@drawable/bg_slider_track"
+                android:thumb="@drawable/bg_slider_thumb" />
+        </LinearLayout>
+
+        <!-- FOOTER TIP FOR SKETCHWARE PRO DEVELOPERS -->
+        <TextView
+            android:id="@+id/tv_sketchware_tip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:text="Ready to bind with Sketchware Pro Service Blocks"
+            android:textColor="@color/text_muted"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+</ScrollView>

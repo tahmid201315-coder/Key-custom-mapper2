@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Background & Surface Colors -->
+    <color name="bg_app">#0B0F19</color>
+    <color name="bg_surface">#111827</color>
+    <color name="bg_surface_elevated">#1A2234</color>
+    <color name="bg_surface_card">#131D31</color>
+    <color name="border_subtle">#22324C</color>
+    <color name="border_active">#00F0FF</color>
+    
+    <!-- Neon Gaming Accents -->
+    <color name="neon_cyan">#00F0FF</color>
+    <color name="neon_cyan_glow">#6600F0FF</color>
+    <color name="neon_cyan_dim">#1F00F0FF</color>
+    <color name="neon_cyan_transparent">#3300F0FF</color>
+    
+    <color name="neon_green">#10B981</color>
+    <color name="neon_green_dim">#2010B981</color>
+    
+    <color name="neon_red">#FF3366</color>
+    <color name="neon_red_dim">#25FF3366</color>
+    
+    <color name="neon_amber">#F59E0B</color>
+    <color name="neon_amber_dim">#25F59E0B</color>
+    
+    <color name="primary_blue">#2563EB</color>
+    <color name="primary_blue_dark">#1D4ED8</color>
+    
+    <!-- Floating HUD Glasses & Opacities -->
+    <color name="hud_glass_bg">#D90A0F1D</color>
+    <color name="hud_trigger_bg">#880E172A</color>
+    <color name="hud_trigger_pressed">#8800F0FF</color>
+    <color name="hud_target_fill">#3300F0FF</color>
+    
+    <!-- Text Colors -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#94A3B8</color>
+    <color name="text_muted">#64748B</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+</resources>

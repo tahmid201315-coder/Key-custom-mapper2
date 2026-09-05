@@ -1,0 +1,88 @@
+name: Android CI & Build Debug APK
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+# Cancel superseded runs on the same branch to save CI minutes.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build Debug APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17 (Temurin)
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      # This installs a real Gradle binary AND transparently manages the
+      # Gradle dependency cache. Using it (instead of relying on a
+      # committed gradle-wrapper.jar) also lets us self-heal the wrapper
+      # in the next step, so a missing/corrupted wrapper jar can never
+      # break the build.
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '9.3.1'
+
+      # Regenerate gradlew, gradlew.bat and gradle/wrapper/gradle-wrapper.jar
+      # from gradle/wrapper/gradle-wrapper.properties. This guarantees the
+      # wrapper always matches the pinned Gradle version and removes any
+      # "Cannot find GradleWrapperMain" / "No such file or directory"
+      # failures caused by a missing or stale wrapper jar in the repo.
+      - name: Regenerate Gradle Wrapper
+        run: gradle wrapper --gradle-version 9.3.1 --distribution-type bin
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x ./gradlew
+
+      # app/build.gradle.kts points the "debugConfig" signing config at
+      # ${rootDir}/debug.keystore. That file is intentionally untracked
+      # (see .gitignore), so CI must generate one with the exact
+      # credentials the build file expects before any assemble/sign step.
+      - name: Generate debug keystore
+        run: |
+          if [ ! -f "debug.keystore" ]; then
+            keytool -genkeypair -v \
+              -keystore debug.keystore \
+              -storepass android \
+              -alias androiddebugkey \
+              -keypass android \
+              -keyalg RSA \
+              -keysize 2048 \
+              -validity 10000 \
+              -dname "CN=Android Debug,O=Android,C=US"
+          fi
+
+      - name: Run unit tests
+        run: ./gradlew testDebugUnitTest --no-daemon --stacktrace
+
+      - name: Build Debug APK
+        run: ./gradlew assembleDebug --no-daemon --stacktrace
+
+      - name: Upload test reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unit-test-reports
+          path: app/build/reports/tests/testDebugUnitTest/
+          if-no-files-found: ignore
+
+      - name: Upload Debug APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-debug-apk
+          path: app/build/outputs/apk/debug/*.apk
+          if-no-files-found: error

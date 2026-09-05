@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Mobile Keymapper</string>
+    <string name="title_app">KEYMAPPER PRO</string>
+    <string name="subtitle_app">HUD Gaming Overlay Engine</string>
+    <string name="section_diagnostics">CORE SERVICE DIAGNOSTICS</string>
+    <string name="title_overlay_perm">Overlay Permission Status</string>
+    <string name="desc_overlay_perm">Required to draw floating HUD buttons over games</string>
+    <string name="title_touch_service">Touch Service Status</string>
+    <string name="desc_touch_service">Accessibility service to inject real screen taps</string>
+    <string name="status_active">ACTIVE</string>
+    <string name="status_inactive">INACTIVE</string>
+    <string name="btn_grant_overlay">Grant Overlay Permission</string>
+    <string name="btn_enable_accessibility">Enable Accessibility Service</string>
+    <string name="btn_start_overlay">⚡ START KEYMAPPER OVERLAY</string>
+    <string name="btn_stop_overlay">🛑 STOP OVERLAY</string>
+    <string name="title_hud_appearance">HUD Appearance &amp; Controls</string>
+    <string name="label_trigger_size">Default Trigger Size</string>
+    <string name="label_overlay_opacity">Overlay Button Opacity</string>
+    <string name="accessibility_service_description">Simulates touch taps at mapped coordinates when you press keymapper trigger buttons during gameplay.</string>
+</resources>

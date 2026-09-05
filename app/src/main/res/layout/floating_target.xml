@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ========================================================================= -->
+<!-- ACTION TARGET MARKER (floating_target.xml)                                -->
+<!-- Placed over native in-game buttons to register tap coordinates            -->
+<!-- High-contrast neon cyan/red crosshair with center dot and pixel readout  -->
+<!-- ========================================================================= -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_floating_target"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <!-- TARGET RETICLE CONTAINER (CROSSHAIR & CENTER PIN) -->
+    <RelativeLayout
+        android:id="@+id/layout_reticle_frame"
+        android:layout_width="64dp"
+        android:layout_height="64dp">
+
+        <!-- VECTOR CROSSHAIR RETICLE (Semi-transparent circle + 4 axis ticks) -->
+        <ImageView
+            android:id="@+id/img_target_reticle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="Crosshair Reticle"
+            android:src="@drawable/ic_target_crosshair" />
+
+        <!-- EXACT CENTER PIXEL DOT (High-Contrast Red/Cyan) -->
+        <View
+            android:id="@+id/view_center_dot"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/bg_target_center_dot" />
+
+        <!-- KEY BINDING MINI-TAG IN RETICLE TOP-RIGHT -->
+        <TextView
+            android:id="@+id/tv_target_key_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/bg_target_coord_badge"
+            android:text="A"
+            android:textColor="@color/neon_cyan"
+            android:textSize="9sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <!-- LIVE COORDINATE PIXEL READOUT BADGE -->
+    <TextView
+        android:id="@+id/tv_target_coordinates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:background="@drawable/bg_target_coord_badge"
+        android:fontFamily="monospace"
+        android:text="X:540  Y:890"
+        android:textColor="@color/white"
+        android:textSize="9sp"
+        android:textStyle="bold" />
+
+</LinearLayout>
